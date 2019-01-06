@@ -1,21 +1,21 @@
-require("dotenv").config()
+require("dotenv").config();
 
-var mysql = require("mysql")
+var mysql = require("mysql");
 
 var connection = mysql.createConnection({
-	host: "localhost",
-	port: 3000,
-	user: "root",
-	passowrd: process.env.PASSWORD,
-	database: "burgers_db"
-})
+  	host: process.env.DB_HOST,
+  	port: 3306,
+  	user: process.env.DB_USER,
+  	password: process.env.DB_PASS,
+  	database: "burger_db"
+});
 
 connection.connect(function(err) {
-	if (err) {
-		console.error("error occurred", err.stack)
-	}
+  	if (err) {
+  	  	console.error("error occured while connecting: ", err.stack);
+  	  	return;
+  	}
+  	console.log("connected as id " + connection.threadId);
+});
 
-	console.log("connetion to id", connection.threadID)
-})
-
-module.exports =  connection;
+module.exports = connection;

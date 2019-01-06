@@ -1,4 +1,4 @@
-var connection = require("./connection")
+var connection = require("./connection.js")
 
 var queryString;
 
@@ -20,7 +20,6 @@ var orm = {
 		}
 	},
 	// CREATE (post method)
-	// TODO: this is incomplete yet
 	insertOne: function(table, col1, col2, val1, val2) {
 		queryString = "INSERT INTO ?? (??, ??) VALUES(?, ?);";
 		connection.query(queryString, [table, col1, col2, val1, val2], function(err, result) {
