@@ -20,8 +20,13 @@ var orm = {
 		}
 	},
 	// CREATE (post method)
-	insertOne: function(table, col, val) {
-		queryString = "INSERT INTO ?? SET ?? = ?";
+	// TODO: this is incomplete yet
+	insertOne: function(table, col1, col2, val1, val2) {
+		queryString = "INSERT INTO ?? (??, ??) VALUES(?, ?);";
+		connection.query(queryString, [table, col1, col2, val1, val2], function(err, result) {
+			if (err) throw err;
+			console.log(results)
+		})
 	}
 };
 
