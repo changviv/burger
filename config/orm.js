@@ -7,15 +7,15 @@ var orm = {
 		queryString = "SELECT * FROM ??";
 		connection.query(queryString, [table], function(err, result) {
 			if (err) throw err;
-			console.log(result);
+			console.log("Select All Results:", result);
 		});
 	},
 	// UPDATE (PUT method)
-	updateOne: function(table, col, val) {
-		queryString = "UPDATE ?? SET ?? = ?";
-		connection.query(queryString, [table, col, val], function(err, result) {
+	updateOne: function(table, col, val, name) {
+		queryString = "UPDATE ?? SET ?? = ? WHERE id = ?";
+		connection.query(queryString, [table, col, val, name], function(err, result) {
 			if (err) throw err;
-			console.log(result)
+			console.log("Update Result:", result);
 		});
 	},
 	// CREATE (POST method)
@@ -23,7 +23,7 @@ var orm = {
 		queryString = "INSERT INTO ?? (??, ??) VALUES(?, ?);";
 		connection.query(queryString, [table, col1, col2, val1, val2], function(err, result) {
 			if (err) throw err;
-			console.log(result)
+			console.log("Add Result:", result);
 		});
 	}
 };
