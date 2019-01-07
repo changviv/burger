@@ -15,12 +15,12 @@ router.get("/", function (req, res) {
 	});
 });
 
-router.get("/api/burger", function (req, res) {
-	burger.all(function (data) {
-		console.log({ burgers: data });
-		res.render("index", { burgers: data });
-	});
-});
+// router.get("/api/burger", function (req, res) {
+// 	burger.all(function (data) {
+// 		console.log({ burgers: data });
+// 		res.render("index", { burgers: data });
+// 	});
+// });
 
 // CREATE (POST) route
 router.post("/api/burger", function(req, res){
