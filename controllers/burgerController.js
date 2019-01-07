@@ -1,11 +1,21 @@
 var express = require("express");
 var burger = require("../models/burger.js");
-
+var connection = require("../config/connection.js")
 
 var router = express.Router();
 
 // READ (GET) route
 router.get("/", function (req, res) {
+	connection.query("SELECT * FROM burgers;", function (err, data) {
+		if (err) {
+			return res.status(500).end();
+		}
+
+		res.render("index", { burgers: data });
+	});
+});
+
+router.get("/api/burger", function (req, res) {
 	burger.all(function (data) {
 		console.log({ burgers: data });
 		res.render("index", { burgers: data });

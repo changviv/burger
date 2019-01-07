@@ -4,9 +4,9 @@
 <h2>Burger List!</h2>
 <ul>
     {{#each burgers}}
-    {{#unless devoured}}
-    {{> burger/button}}
-    {{/unless}}
+        {{#unless devoured}}
+            {{> burger/burger-button}}
+        {{/unless}}
     {{/each}}
 </ul>
 
@@ -14,8 +14,8 @@
 <h2>Burger Devoured!</h2>
 <ul>
     {{#each burgers}}
-    {{#if devoured}}
-    {{/if}}
+        {{#if devoured}}
+        {{/if}}
     {{/each}}
 </ul>
 
