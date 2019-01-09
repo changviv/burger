@@ -3,10 +3,11 @@ var connection = require("./connection.js")
 var queryString;
 var orm = {
 	// READ (GET method)
-	selectAll: function(table) {
+	selectAll: function(table, cb) {
 		queryString = "SELECT * FROM ??";
 		connection.query(queryString, [table], function(err, result) {
 			if (err) throw err;
+			cb(result);
 			console.log("Select All Results:", result);
 		});
 	},
@@ -15,6 +16,7 @@ var orm = {
 		queryString = "UPDATE ?? SET ?? = ? WHERE id = ?";
 		connection.query(queryString, [table, col, val, name], function(err, result) {
 			if (err) throw err;
+			cb(result);
 			console.log("Update Result:", result);
 		});
 	},
@@ -23,9 +25,11 @@ var orm = {
 		queryString = "INSERT INTO ?? (??, ??) VALUES(?, ?);";
 		connection.query(queryString, [table, col1, col2, val1, val2], function(err, result) {
 			if (err) throw err;
+			cb(result);
 			console.log("Add Result:", result);
 		});
 	}
 };
+
 
 module.exports = orm;

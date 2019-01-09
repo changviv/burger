@@ -1,26 +1,15 @@
 var express = require("express");
 var burger = require("../models/burger.js");
 var connection = require("../config/connection.js")
-
 var router = express.Router();
 
 // READ (GET) route
 router.get("/", function (req, res) {
-	connection.query("SELECT * FROM burgers;", function (err, data) {
-		if (err) {
-			return res.status(500).end();
-		}
-
+	burger.all(function(data) {
+		console.log(data);
 		res.render("index", { burgers: data });
 	});
 });
-
-// router.get("/api/burger", function (req, res) {
-// 	burger.all(function (data) {
-// 		console.log({ burgers: data });
-// 		res.render("index", { burgers: data });
-// 	});
-// });
 
 // CREATE (POST) route
 router.post("/api/burger", function(req, res){
@@ -32,7 +21,7 @@ router.post("/api/burger", function(req, res){
 // Update (PUT) route
 router.put("/api/burger/:id", function (req, res) {
 	burger.update("devoured", req.body.devoured, req.body.burger_name, req,params.id, function(result) {
-		if (result.changedRows == 0) {
+		if (result.changedRows === 0) {
 			// If no rows were changed, then the ID must not exist, so 404
 			return res.status(404).end();
 		} else {
