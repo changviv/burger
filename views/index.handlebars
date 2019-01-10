@@ -1,7 +1,7 @@
 <h1>Eat Da Burger!</h1>
 
 {{!-- Show burger list once added to list --}}
-<h2>Burger List!</h2>
+<h2 id="burger-list">Burger List!</h2>
 <ul>
     {{#each burgers}}
         {{#unless devoured}}
@@ -11,7 +11,7 @@
 </ul>
 
 {{!-- Show burger devoured once added to list --}}
-<h2>Burger Devoured!</h2>
+<h2 id="devoured">Burger Devoured!</h2>
 <ul>
     {{#each burgers}}
         {{#if devoured}}
