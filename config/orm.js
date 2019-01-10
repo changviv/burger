@@ -8,7 +8,8 @@ var orm = {
 		connection.query(queryString, [table], function(err, result) {
 			if (err) throw err;
 			cb(result);
-			console.log("Select All Results:", result);
+			console.log("Select All Results:");
+			console.log(result);
 		});
 	},
 	// UPDATE (PUT method)
@@ -17,16 +18,14 @@ var orm = {
 		connection.query(queryString, [table, col, val, id], function(err, result) {
 			if (err) throw err;
 			cb(result);
-			console.log("Update Result:", result);
 		});
 	},
 	// CREATE (POST method)
-	insertOne: function(table, col1, col2, val1, val2, cb) {
-		queryString = "INSERT INTO ?? (??, ??) VALUES(?, ?);";
-		connection.query(queryString, [table, col1, col2, val1, val2], function(err, result) {
+	insertOne: function(table, col, val, cb) {
+		queryString = "INSERT INTO ?? (??) VALUES(?);";
+		connection.query(queryString, [table, col, val], function(err, result) {
 			if (err) throw err;
 			cb(result);
-			console.log("Add Result:", result);
 		});
 	}
 };

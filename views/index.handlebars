@@ -1,29 +1,34 @@
 <h1>Eat Da Burger!</h1>
 
 {{!-- Show burger list once added to list --}}
-<h2 id="burger-list">Burger List!</h2>
-<ul>
-    {{#each burgers}}
-        {{#unless devoured}}
-            {{> burger/burger-button}}
-        {{/unless}}
-    {{/each}}
-</ul>
+<div id="burger-list">
+    <h2 >Burger List!</h2>
+    <ul>
+        {{#each burgers}}
+            {{#unless devoured}}
+                {{> burger/burger-button}}
+            {{/unless}}
+        {{/each}}
+    </ul>
+</div>
+
 
 {{!-- Show burger devoured once added to list --}}
-<h2 id="devoured">Burger Devoured!</h2>
-<ul>
-    {{#each burgers}}
-        {{#if devoured}}
-            {{> burger/burger-devoured}}
-        {{/if}}
-    {{/each}}
-</ul>
+<div id="devoured">
+    <h2>Burger Devoured!</h2>
+    <ul>
+        {{#each burgers}}
+            {{#if devoured}}
+                {{> burger/burger-devoured}}
+            {{/if}}
+        {{/each}}
+    </ul>
+</div>
 
 
 {{!-- Add Burger Input to List --}}
 <h2>Add a Burger</h2>
-<form>
+<form class="create-form">
     <div class="form-group">
         <label for="burgerInput">Add a Burger!</label>
         <textarea class="form-control" id="burgerInput" rows="3"></textarea>

@@ -12,7 +12,7 @@ router.get("/", function (req, res) {
 
 // CREATE (POST) route
 router.post("/api/burger", function(req, res){
-	burger.create("burger_name", "devoured", req.body.burger_name, req.body.devoured, function(result) {
+	burger.create(req.body.burger_name, function(result) {
 		res.json({ id: result.insertId });
 	});
 });
