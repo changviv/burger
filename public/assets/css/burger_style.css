@@ -1,0 +1,44 @@
+body {
+	background-color: #f8c445;
+	text-align: center;
+	font-family: 'Coiny', cursive;
+	color: #7b26c2;
+}
+
+h1 {
+	font-size: 65px;
+}
+
+#burger-img {
+	width: 20%;
+	height: 20%;
+}
+
+/*.col {
+	text-align: left;
+}*/
+
+li {
+	list-style-type: none;
+	color: black;
+	text-align: left;
+
+}
+
+#burger-list, 
+#devoured {
+  margin: auto;
+  /*width: 50%;*/
+  padding: 10px;
+}
+
+#input-box {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.devour-burger {
+	border-radius: .35em;
+	font-family: 'Lato', sans-serif;
+}

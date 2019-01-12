@@ -1,37 +1,47 @@
 <h1>Eat Da Burger!</h1>
 
-{{!-- Show burger list once added to list --}}
-<div id="burger-list">
-    <h2 >Burger List!</h2>
-    <ul>
-        {{#each burgers}}
-            {{#unless devoured}}
-                {{> burger/burger-button}}
-            {{/unless}}
-        {{/each}}
-    </ul>
-</div>
+<img id="burger-img" src="assets/img/burger.svg">
 
 
-{{!-- Show burger devoured once added to list --}}
-<div id="devoured">
-    <h2>Burger Devoured!</h2>
-    <ul>
-        {{#each burgers}}
-            {{#if devoured}}
-                {{> burger/burger-devoured}}
-            {{/if}}
-        {{/each}}
-    </ul>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 >Burger List!</h2>
+        </div>
+        <div class="col">
+            <h2>Burger Devoured!</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" id="burger-list">
+            
+            <ul>
+                {{#each burgers}}
+                    {{#unless devoured}}
+                        {{> burger/burger-button}}
+                    {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col" id="devoured">
+            <ul>
+                {{#each burgers}}
+                    {{#if devoured}}
+                        {{> burger/burger-devoured}}
+                    {{/if}}
+                {{/each}}
+            </ul>
+        </div>
+    </div>
 </div>
+
 
 
 {{!-- Add Burger Input to List --}}
 <h2>Add a Burger</h2>
 <form class="create-form">
-    <div class="form-group">
-        <label for="burgerInput">Add a Burger!</label>
+    <div class="form-group" id="input-box">
         <textarea class="form-control" id="burgerInput" rows="3"></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-success">Submit</button>
 </form>

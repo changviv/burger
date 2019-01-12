@@ -1,12 +1,11 @@
 $(function() {
 	$(".devour-burger").on("click", function(event) {
     	var id = $(this).data("id");
-    	var burgerChange = { devoured: 1 };
 
         // Send the PUT request.
         $.ajax("/api/burger/" + id, {
             type:"PUT",
-            data: burgerChange
+            data: { devoured: 1 }
         }).then(function() {
             location.reload();
         });
@@ -18,7 +17,7 @@ $(function() {
     	burgerName = $("#burgerInput").val().trim();
 
     	if (burgerName === "") {
-    		alert("Please add a burger")
+    		alert("Please add a burger");
     	} else {
     		// Send the POST request.
     		$.ajax("/api/burger", {
@@ -29,7 +28,5 @@ $(function() {
     		    location.reload();
     		});
     	};
-
-    	
   	});
 });
